@@ -202,12 +202,8 @@ class EntityExtraction extends DandelionBase
             if ($_sc < 200 || $_sc >= 300) {
                 throw new \Exception("error");
             }
-            $_buff = "";
-            $_stream = $response->getBody();
-            while (!$_stream->eof()) {
-                $_buff .= $_stream->read(1024);
-            }
-            $_rv = json_decode($_buff);
+
+            $_rv = json_decode($response->getBody());
 
         } catch (\Exception $e) {
             throw $e;
