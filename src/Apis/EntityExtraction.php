@@ -191,9 +191,9 @@ class EntityExtraction extends DandelionBase
         $_params  = $this->readProperties();
         try {
             $client   = new Client();
-            $response = $client->get(static::END_POINT,
+            $response = $client->post(static::END_POINT,
                 [
-                    'query'   => $_params,
+                    'form_params'   => $_params,
                     'timeout' => '60',
                 ]
             );
